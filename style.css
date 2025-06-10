@@ -70,3 +70,17 @@ h1 {
 .piece.black-piece {
     color: #2c2c2c; /* Dark color for black pieces */
 }
+
+#flip-board-btn {
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#flip-board-btn:hover {
+    background-color: #ccc;
+}
