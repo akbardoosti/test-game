@@ -137,6 +137,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    function isValidKnightMove(fromRow, fromCol, toRow, toCol) {
+        const rowDiff = Math.abs(fromRow - toRow);
+        const colDiff = Math.abs(fromCol - toCol);
+
+        // A knight's move is valid if one difference is 1 and the other is 2
+        return (rowDiff === 1 && colDiff === 2) || (rowDiff === 2 && colDiff === 1);
+        // The check for moving onto own piece is done in handleSquareClick.
+        // Knights can jump, so no path checking needed.
+    }
+
     function handleSquareClick(event) {
         const clickedSquareElement = event.target.closest('.square');
         if (!clickedSquareElement) return;
@@ -167,8 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = isValidPawnMove(fromRow, fromCol, toRow, toCol, pieceColor, pieceOnClickedSquare);
             } else if (pieceType === 'R') {
                 isValid = isValidRookMove(fromRow, fromCol, toRow, toCol);
+            } else if (pieceType === 'N') { // 'N' for Knight
+                isValid = isValidKnightMove(fromRow, fromCol, toRow, toCol);
             } else {
-                // For other pieces, allow any move for now
+                // For other pieces (Bishop, Queen, King), allow any move for now
                 isValid = true;
             }
 
