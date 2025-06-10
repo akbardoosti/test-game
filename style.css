@@ -1,0 +1,72 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+#game-status {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#chessboard-container {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    width: 480px; /* 8 * 60px */
+    height: 480px; /* 8 * 60px */
+    border: 5px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em; /* For piece characters */
+    box-sizing: border-box; /* Ensures padding/border don't increase size */
+}
+
+.light {
+    background-color: #f0d9b5;
+}
+
+.dark {
+    background-color: #b58863;
+}
+
+/* Basic styles for pieces, can be refined later */
+.piece {
+    cursor: pointer;
+}
+
+/* Add this to your existing style.css */
+.square.selected {
+    background-color: #90ee90 !important; /* Light green to indicate selection, !important for override */
+    outline: 2px solid darkgreen;
+}
+
+/* Minor adjustments for piece visibility if needed */
+.piece {
+    cursor: pointer;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3); /* Slight shadow for piece characters */
+}
+
+/* Add these to your existing style.css */
+.piece.white-piece {
+    color: #f8f8f8; /* Light color for white pieces */
+}
+
+.piece.black-piece {
+    color: #2c2c2c; /* Dark color for black pieces */
+}
